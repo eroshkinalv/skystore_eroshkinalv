@@ -7,26 +7,37 @@ class Category:
     name: str
     description: str
     products: list
+
     category_count = 0
     product_count = 0
 
     def __init__(self, name, description, products=None):
+
         self.name = name
         self.description = description
-        self.products = products if products else []
+        self.__products = products if products else []
+
         Category.category_count += 1
         Category.product_count += len(products) if products else 0
 
+    def add_product(self, *args: Product):
 
-if __name__ == '__main__':
-    product_1 = Product('Raid', 'Средство от комаров', 400, 333)
-    product_2 = Product('Mosquitall', 'Средство от комаров', 359.99, 499)
-    product_3 = Product('Раптор', 'Средство от комаров', 460, 564)
+        for product in args:
+            self.__products.append(product)
 
-    category = Category('Хозяйственные товары', 'Против насекомых и грызунов', [product_1, product_2, product_3])
+        Category.product_count += len(args)
 
-    print(category.name)
-    print(category.description)
-    print(category.products)
-    print(category.category_count)
-    print(category.product_count)
+        return self.__products
+
+    @property
+    def products(self):
+
+        prod_str = ''
+        for product in self.__products:
+            prod_str += f'{product.name}, {product.price} руб. Остаток: {product.quantity} шт.\n'
+
+        return prod_str
+
+    @property
+    def products_list(self):
+        return self.__products
