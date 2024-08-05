@@ -10,6 +10,11 @@ def sample_product():
 
 
 @pytest.fixture
+def sample_a():
+    return Product('TrueStyle', 'Футболка нарядная', 999, 2)
+
+
+@pytest.fixture
 def category_a():
     return Category(
         name='Футболки',
@@ -32,9 +37,16 @@ def category_b():
 
 
 @pytest.fixture
+def add_product_category_a():
+    return [Product('NoName', 'Футболка оверсайз', 659, 1),
+            Product('Brands club', 'Футболка базовая', 599.99, 2),
+            Product('FakeNike', 'Футболка спортивная', 685, 3)]
+
+
+@pytest.fixture
 def json_data():
     return [{"name": "Смартфоны",
-            "description": "Смартфоны, как средство не только коммуникации",
+            "description": "Смартфоны, как средство коммуникации",
              "products": [{
                  "name": "Samsung Galaxy C23 Ultra",
                  "description": "256GB, Серый цвет, 200MP камера",
@@ -55,3 +67,12 @@ def json_data():
                  "description": "Фоновая подсветка",
                  "price": 123000.0,
                  "quantity": 7}]}]
+
+
+@pytest.fixture
+def product_dict():
+    return {
+        "name": "Samsung Galaxy C23 Ultra",
+        "description": "256GB, Серый цвет, 200MP камера",
+        "price": 180000.0,
+        "quantity": 5}
