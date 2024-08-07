@@ -2,6 +2,7 @@ import pytest
 
 from src.category import Category
 from src.product import Product
+from src.product_iterator import ProductIterator
 
 
 @pytest.fixture
@@ -12,6 +13,11 @@ def sample_product():
 @pytest.fixture
 def sample_a():
     return Product('TrueStyle', 'Футболка нарядная', 999, 2)
+
+
+@pytest.fixture
+def sample_b():
+    return Product('Brands club', 'Футболка базовая', 599.99, 2)
 
 
 @pytest.fixture
@@ -76,3 +82,8 @@ def product_dict():
         "description": "256GB, Серый цвет, 200MP камера",
         "price": 180000.0,
         "quantity": 5}
+
+
+@pytest.fixture
+def product_iterator(category_a):
+    return ProductIterator(category_a)

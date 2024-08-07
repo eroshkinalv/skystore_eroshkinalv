@@ -13,3 +13,7 @@ def test_category_init(category_a, category_b):
 def test_category_add_product(category_a):
     assert category_a.products == ('NoName, 659 руб. Остаток: 1 шт.\nBrands club, 599.99 руб. Остаток: 2 шт.\n'
                                    'FakeNike, 685 руб. Остаток: 3 шт.\n')
+
+
+def test_category_str(category_a):
+    assert str(category_a) == 'Футболки, количество продуктов: 6 шт.'
