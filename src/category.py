@@ -26,7 +26,10 @@ class Category:
     def add_product(self, *args: Product):
 
         for product in args:
-            self.__products.append(product)
+            if isinstance(product, Product):
+                self.__products.append(product)
+            else:
+                raise TypeError
 
         Category.product_count += len(args)
 
