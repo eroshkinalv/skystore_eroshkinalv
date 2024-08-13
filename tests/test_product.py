@@ -25,3 +25,11 @@ def test_price_update(capsys, sample_product):
 
     sample_product.price = 250
     assert sample_product.price == 250
+
+
+def test_product_str(sample_product):
+    assert str(sample_product) == 'Raid, 400 руб. Остаток: 2 шт.'
+
+
+def test_product_add(sample_a, sample_b):
+    assert sample_a + sample_b == 3197.98
