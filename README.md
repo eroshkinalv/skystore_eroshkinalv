@@ -36,3 +36,4 @@ git clone https://github.com/eroshkinalv/skystore_eroshkinalv.git
 ```
 pytest
 ```
+
