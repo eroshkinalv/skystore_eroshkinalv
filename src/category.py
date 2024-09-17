@@ -47,3 +47,11 @@ class Category:
     @property
     def products_list(self):
         return self.__products
+
+    def middle_price(self):
+
+        try:
+            return round(sum([prod.price for prod in self.__products]) / len(self.__products), 2)
+
+        except ZeroDivisionError:
+            return 0

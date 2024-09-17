@@ -25,3 +25,8 @@ def test_category_str(category_a):
 def test_category_add_product_error(category_a):
     with pytest.raises(TypeError):
         assert category_a.add_product("Not a product")
+
+
+def test_middle_price(category_a, no_products_in_category):
+    assert category_a.middle_price() == 648.00
+    assert no_products_in_category.middle_price() == 0
